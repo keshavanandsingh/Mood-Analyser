@@ -1,4 +1,5 @@
 package MOOD.ANLYSER;
+import MOOD.ANLYSER.InvalidMoodEx.ExceptionType;
 
 public class MoodAnalyser {
 	private String message;
@@ -12,16 +13,17 @@ public class MoodAnalyser {
 	}
 	public String AnalyseMood() throws InvalidMoodEx {
 			try {
-			if(message.length()==0)
-				throw new InvalidMoodEx(InvalidMoodEx.ExceptionType.Entered_Empty, "Enter A Valid Mood !");
-			else if(message.contains("Sad"))
+				if(message.length()==0)
+					throw new InvalidMoodEx(ExceptionType.Entered_Empty, "Enter A Valid Mood !");
+				else if(message.contains("Sad")) 
 				return "Sad";
-			else
+			    else
 				return "Happy";
 			}
-			catch(Exception e){
-				throw new InvalidMoodEx(InvalidMoodEx.ExceptionType.Entered_Null, "Enter A Valid Mood !");
+			catch(NullPointerException e) {
+				throw new InvalidMoodEx(ExceptionType.Entered_Null,"Enter A Valid Mood !");
 			}
 			
 		}
+
 }
