@@ -1,11 +1,17 @@
 package MOOD.ANLYSER;
 
-public class InvalidMoodEx extends Exception 
-{/**
+public class InvalidMoodEx extends Exception {
+	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	public InvalidMoodEx(String message) {
-		super(message);
+	enum ExceptionType{
+		Entered_Null,Entered_Empty
 	}
+	ExceptionType type;
+	private static final long serialVersionUID = 1L;
+	public InvalidMoodEx(ExceptionType type,String message) {
+		super(message);
+		this.type=type;
+	}
+
 }

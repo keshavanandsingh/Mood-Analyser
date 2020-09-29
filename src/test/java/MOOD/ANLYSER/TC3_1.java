@@ -3,8 +3,7 @@ package MOOD.ANLYSER;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class TC2_1
-{
+public class TC3_1 {
 	//Happy
 		@Test
 		public void WhenGivenHappy_ReturnsHappy() {
@@ -52,14 +51,25 @@ public class TC2_1
 			}
 		}
 		@Test
-		public void WhenGivenNullMessage_HandlesException_ReturnHappy() {
+		public void WhenGivenNullMessage_HandlesException_ReturnMessage() {
 			MoodAnalyser moodAnalyser=new MoodAnalyser();
 			moodAnalyser.setMessage(null);
 			try {
 				String mood = moodAnalyser.AnalyseMood();
 				Assert.assertEquals("Happy",mood);
 			} catch (InvalidMoodEx e) {
-			Assert.assertEquals("Enter A Valid Mood",e.getMessage());
+			Assert.assertEquals("Enter A Valid Mood !",e.getMessage());
+			}
+		}
+		@Test
+		public void WhenGivenNullMessage_HandlesException_ReturnInvalidExType() {
+			MoodAnalyser moodAnalyser=new MoodAnalyser();
+			moodAnalyser.setMessage(null);
+			try {
+				String mood = moodAnalyser.AnalyseMood();
+				Assert.assertEquals("Happy",mood);
+			} catch (InvalidMoodEx e) {
+			Assert.assertEquals(InvalidMoodEx.ExceptionType.Entered_Null,e.type);
 			}
 		}
 
