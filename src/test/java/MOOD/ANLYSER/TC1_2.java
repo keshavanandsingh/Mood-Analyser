@@ -1,10 +1,11 @@
 package MOOD.ANLYSER;
 
+import static org.junit.Assert.*;
+
 import org.junit.Assert;
 import org.junit.Test;
 
-public class TC1_1 
-{
+public class TC1_2 {
 	//Happy
 		@Test
 		public void WhenGivenHappy_ReturnsHappy() {
@@ -25,6 +26,11 @@ public class TC1_1
 			String mood=moodAnalyser.AnalyseMood("I am in Sad mood !");
 			Assert.assertEquals("Sad",mood);
 		}
-	
+		@Test
+		public void WhenGivenAnyMessage_ReturnsHappy() {
+			MoodAnalyser moodAnalyser=new MoodAnalyser();
+			String mood=moodAnalyser.AnalyseMood("I am in Any mood !");
+			Assert.assertEquals("Happy",mood);
+		}
 
 }
