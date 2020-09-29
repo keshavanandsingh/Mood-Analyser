@@ -3,8 +3,8 @@ package MOOD.ANLYSER;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class UC2 {
-	//Happy MOOD.ANLYSER
+public class UC3 {
+	//Happy
 		@Test
 		public void WhenGivenHappy_ReturnsHappy() {
 			MoodAnalyser moodAnalyser=new MoodAnalyser();
@@ -13,10 +13,10 @@ public class UC2 {
 				String mood = moodAnalyser.AnalyseMood();
 				Assert.assertEquals("Happy",mood);
 			} catch (InvalidMoodEx e) {
-			Assert.assertEquals("how is your mood",e.getMessage());
+			Assert.assertEquals("Enter A Valid Mood",e.getMessage());
 			}
 		}
-	//Sad MOOD.ANLYSER
+	//Sad
 		@Test
 		public void WhenGivenSad_ReturnsSad() {
 			MoodAnalyser moodAnalyser=new MoodAnalyser();
@@ -25,7 +25,7 @@ public class UC2 {
 				String mood = moodAnalyser.AnalyseMood();
 				Assert.assertEquals("Sad",mood);
 			} catch (InvalidMoodEx e) {
-			Assert.assertEquals("how is your mood",e.getMessage());
+			Assert.assertEquals("Enter A Valid Mood",e.getMessage());
 			}
 		}
 		@Test
@@ -36,7 +36,7 @@ public class UC2 {
 				String mood = moodAnalyser.AnalyseMood();
 				Assert.assertEquals("Sad",mood);
 			} catch (InvalidMoodEx e) {
-			Assert.assertEquals("how is your mood",e.getMessage());
+			Assert.assertEquals("Enter A Valid Mood",e.getMessage());
 			}
 		}
 		@Test
@@ -47,9 +47,21 @@ public class UC2 {
 				String mood = moodAnalyser.AnalyseMood();
 				Assert.assertEquals("Happy",mood);
 			} catch (InvalidMoodEx e) {
-			Assert.assertEquals("how is your mood",e.getMessage());
+			Assert.assertEquals("Enter A Valid Mood",e.getMessage());
+			}
+		}
+		@Test
+		public void WhenGivenNullMessage_HandlesException_ReturnHappy() {
+			MoodAnalyser moodAnalyser=new MoodAnalyser();
+			moodAnalyser.setMessage(null);
+			try {
+				String mood = moodAnalyser.AnalyseMood();
+				Assert.assertEquals("Happy",mood);
+			} catch (InvalidMoodEx e) {
+			Assert.assertEquals("Enter A Valid Mood !",e.getMessage());
 			}
 		}
 	
 	}
+
 
